@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Portfolio - Pratham Hebbar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="header">
+    <div class="container">
+        <nav>
+          <img src="essentials/key_logo.png" class="logo">
+        </nav>
+        <div class="header-text">
+            <p>Incoming College Student at UC Irvine</p>
+            <h1>Hi, I'm <span>Pratham Hebbar</span></h1>
+            <br>
+        </div>
+    </div>
+  </div>
+
+  <div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="essentials/pratham.jpg">
+            </div>
+
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>Learn more about Pratham Hebbar</p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+
+                <div class="tab-contents active-tab" id="skills">
+                  <ul>
+                    <li><span>Python</span><br>&nbsp;&nbsp;&nbsp;&nbsp;Graphical User Interface Programs</li>
+                    <li><span>Swift</span><br>&nbsp;&nbsp;&nbsp;&nbsp;iOS App Development</li>
+                    <li><span>Java</span><br>&nbsp;&nbsp;&nbsp;&nbsp;Graphical User Interface Programs</li>
+                  </ul>  
+                </div>
+
+                <div class="tab-contents" id="experience">
+                  <ul>
+                    <li><span>Student Researcher at Pioneer Academics</span><br>Feb 2023 - Jul 2023<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Conducted research in the field of cybersecurity and machine learning and wrote a research paper on Artificial Intelligence-based<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intrusion Detection Systems and Deep Learning.</li>
+                    <li>
+                      <span>Summer Intern at Comet</span>
+                      <br>
+                      Jul 2022 - Sep 2022
+                      <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      Created a web application that displays colleges in a card-style view and a modal pop-up when the cards are clicked on.
+                      <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Conducted a market audience survey in order to find out some of the most common problems students have relating to the college<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application process.
+                    </li>
+                    <li>
+                      <span>Palendar (iOS App)</span>
+                      <br>Jun 2021 - Jan 2022<br><br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spent months working on an iOS app that helps simplify making plans with your friends. Finally got it released onto the App Store<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on January 12, 2022.
+                    </li>
+                  </ul>  
+                </div>
+
+                <div class="tab-contents" id="education">
+                  <ul>
+                    <li><span>2024 - 2028</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;University of California Irvine</li>
+                    <li><span>Aug 2020 - Jun 2024</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Homestead High School</li>
+                    <li><span>Aug 2017 - Jun 2020</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunnyvale Middle School</li>
+                    <li><span>Aug 2011 - Jun 2017</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cumberland Elementary School</li>
+                  </ul>  
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div id="contact">
+    <div class="container">
+         <div class="row">
+             <div class="contact-left">
+                  <h1 class="sub-title">Contact Me!</h1>
+                  <p>Email: prathamhebbar2021@gmail.com</p>
+                  <p>Phone Number: +1 (408)836-9913</p>
+                  <a href="essentials/Pratham Hebbar - Resume.pdf" download class="btn btn2">Download Resume</a>
+             </div>
+
+             <div class="contact-right">
+                  <form name="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                      <input type="hidden" name="access_key" value="4849c91c-10f5-40f7-a335-35387aa75f48">
+                      <input id="name_input" type="text" name="Name" placeholder="Name" required>
+                      <input id="email_input" type="email" name="Email" placeholder="Email" required>
+                      <textarea id="message_text_area" name="Message" rows="6" placeholder="Leave a Message Here" required></textarea>
+                      <!-- <button type="submit" class="btn btn2" onclick="clearFormInputs()">Submit</button> -->
+                      <input type="button" value="Submit" id="btnsubmit" onclick="clearFormInputs()">
+
+                  </form>
+             </div>
+         </div>
+    </div>
+  </div>
+
+  <script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+  
+    function opentab(tabname) {
+        for(tablink of tablinks) {
+           tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents) {
+           tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+    function clearFormInputs() {
+        var items = document.getElementsByName('contact-form')[0];
+        items.submit();
+        items.reset();
+        return true;
+    }
+  </script>
+  
+</body>
+</html>
