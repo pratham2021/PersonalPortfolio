@@ -93,8 +93,8 @@
                       <input id="name_input" type="text" name="Name" placeholder="Name" required>
                       <input id="email_input" type="email" name="Email" placeholder="Email" required>
                       <textarea id="message_text_area" name="Message" rows="6" placeholder="Leave a Message Here"></textarea>
-                      <!-- <button type="submit" class="btn btn2" onclick="clearFormInputs()">Submit</button> -->
-                      <input type="submit" value="Submit" id="btnsubmit" oninput="clearFormInputs()" onload="clear()" onclick="window.location.reload(true);">
+                      <button type="submit" class="btn btn2" onclick="clearFormInputs()">Submit</button>
+                      <!-- <input type="submit" value="Submit" id="btnsubmit" onclick="clearFormInputs()"> -->
 
                   </form>
              </div>
@@ -113,38 +113,24 @@
         for(tabcontent of tabcontents) {
            tabcontent.classList.remove("active-tab");
         }
+
         event.currentTarget.classList.add("active-link");
         document.getElementById(tabname).classList.add("active-tab");
     }
 
     function clearFormInputs() {
+        var nameInput = document.getElementById('name_input');
+        var emailInput = document.getElementById('email_input');
+        var messageInput = document.getElementById('message_text_area');
 
-      var nameInput = document.getElementById('name_input').value;
-      var emailInput = document.getElementById('email_input').value;
-      var messageInput = document.getElementById('message_text_area').value;
-
-      if (nameInput != '' && emailInput != '' && messageInput != '') {
-        var form = document.forms['contact-form'];
-        form.submit();
-        form.reset();
-        window.location.reload(true);
-        return true;
-      }
-    }
-
-    function clear() {
-          var nameInput = document.getElementById('name_input').value;
-          var emailInput = document.getElementById('email_input').value;
-          var messageInput = document.getElementById('message_text_area').value;
-
-          if (nameInput != '' && emailInput != '' && messageInput != '') {
-            document.getElementById('name_input').value = '';
-            document.getElementById('email_input').value = '';
-            document.getElementById('message_text_area').value = '';
-          }
-
-          window.location.reload(true);
-          return true;
+        if (nameInput.value !== '' && emailInput.value !== '' && messageInput.value !== '') {
+            var form = document.forms['contact-form'];
+            form.submit();
+            form.reset();
+            nameInput.value = '';
+            emailInput.value = '';
+            messageInput.value = '';
+        }
     }
   </script>
   
