@@ -94,7 +94,7 @@
                       <input id="email_input" type="email" name="Email" placeholder="Email" required>
                       <textarea id="message_text_area" name="Message" rows="6" placeholder="Leave a Message Here" required></textarea>
                       <!-- <button type="submit" class="btn btn2" onclick="clearFormInputs()">Submit</button> -->
-                      <input type="button" value="Submit" id="btnsubmit" onclick="clearFormInputs()">
+                      <input type="submit" value="Submit" id="btnsubmit" onclick="clearFormInputs()">
 
                   </form>
              </div>
@@ -118,10 +118,18 @@
     }
 
     function clearFormInputs() {
-        var items = document.getElementsByName('contact-form')[0];
-        items.submit();
-        items.reset();
-        return true;
+
+      var nameInput = document.getElementById('name_input').value;
+      var emailInput = document.getElementById('email_input').value;
+      var messageInput = document.getElementById('message_text_area').value;
+
+      if (nameInput === '' || emailInput === '' || messageInput === '') {
+          return;
+      }
+
+      var form = document.forms['contact-form'];
+      form.submit();
+      form.reset();
     }
   </script>
   
